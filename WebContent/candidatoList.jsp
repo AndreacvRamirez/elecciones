@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="container text-left">
-				<a href="<%=request.getContextPath()%>/newCandidato" class="btn btn-success">
+				<a href="<%=request.getContextPath()%>/candidato?accion=newCandidato" class="btn btn-success">
 					Agregar</a>
 			</div>
 
@@ -53,7 +53,7 @@
 							<td class="text-left"><c:out value="${usuario.eleccion}"></c:out></td>
 							<td class="text-left"><c:out value="${usuario.numero}"></c:out></td>
 
-							<td class="text-left"><a href="editCandidato?id=<c:out value = '${usuario.id}' />">Editar
+							<td class="text-left"><a href="candidato?accion=showEditCandiato&&candidato=<c:out value = '${usuario.id}' />">Editar
 							</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
 								href="deleteCandidato?id=<c:out value='${usuario.id}' />">Eliminar</a></td>
 					</c:forEach>

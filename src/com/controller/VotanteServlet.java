@@ -29,7 +29,7 @@ public class VotanteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String accion = request.getParameter("accion");
-		System.out.println("ENTROOOOO GET");
+		//System.out.println("ENTROOOOO GET");
 		if (accion != null) {
 			try {
 				switch (accion) {
