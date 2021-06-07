@@ -7,41 +7,24 @@
 <meta charset="ISO-8859-1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
-<title>Candidato</title>
+	rel="stylesheet">
+<title>${candidato == null ? "Registrar" : "Actualizar"}
+	Candidato</title>
 </head>
 <body>
 
-
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: tomato">
-			<div>
-				<a href="#" class="navbar-brand">Gestión Candidato</a>
-			</div>
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link"> Candidatos </a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<br>
-
-	<div class="container col-md-5">
+	<div class="container col-md-5 pt-5">
 
 		<div class="card">
 
 			<div class="card-body">
 
 				<c:if test="${candidato != null}">
-					<form action="updateCandidato" method="get">
+					<form action="candidato?accion=updateCandidato" method="post">
 				</c:if>
 
 				<c:if test="${candidato == null}">
-					<form action="insertCandidato" method="get">
+					<form action="candidato?accion=insertCandidato" method="post">
 				</c:if>
 
 				<caption>
@@ -78,9 +61,10 @@
 
 				<fieldset class="form-group">
 					<label>Elección</label> <select class="form-select" name="eleccion">
-						<option selected>Seleccione Una</option>
+						<option selected
+							value="${candidato != null ? candidato.eleccion : ""}">${candidato != null ? candidato.eleccion : "Seleccione Una"}</option>
 						<c:forEach var="dd" items="${listEleccion}">
-							<option value='${dd.id}'>"${dd.nombre}"</option>
+							<option value='${dd.id}'><c:out value='${dd.nombre}' /></option>
 						</c:forEach>
 					</select>
 				</fieldset>
@@ -90,16 +74,10 @@
 						value="<c:out value='${candidato.numero}'/>" class="form-control"
 						name="numero">
 				</fieldset>
-
 				<button type="submit" class="btn btn-success">Enviar</button>
-
 				</form>
-
 			</div>
-
 		</div>
-
 	</div>
-
 </body>
 </html>

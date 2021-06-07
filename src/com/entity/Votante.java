@@ -26,6 +26,12 @@ public class Votante implements Serializable{
 	}
 
 
+	public Votante(int id, String documento) {
+		this.id = id;
+		this.documento = documento;
+	}
+
+
 	public Votante(String nombre, String email, String documento, int tipo_documento, int eleccion) {
 		super();
 		this.nombre = nombre;

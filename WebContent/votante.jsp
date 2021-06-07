@@ -7,40 +7,23 @@
 <meta charset="ISO-8859-1">
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
+	rel="stylesheet">
 <title>Votante | ${votante == null ? "Registrar" : "Actualizar"}</title>
 </head>
 <body>
 
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark"
-			style="background-color: tomato">
-			<div>
-				<a href="#" class="navbar-brand">Gestión Votante</a>
-			</div>
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link"> Votantes </a></li>
-			</ul>
-		</nav>
-	</header>
-
-	<br>
-
-	<div class="container col-md-5">
+	<div class="container col-md-5 pt-5">
 
 		<div class="card">
 
 			<div class="card-body">
 
 				<c:if test="${votante != null}">
-					<form action="updateVotante" method="get">
+					<form action="/votante?accion=updateVotante"  method="post">
 				</c:if>
 
 				<c:if test="${votante == null}">
-					<form action="insertVotante" method="get">
+					<form action="/votante?accion=insertVotante"  method="post">
 				</c:if>
 
 				<caption>
@@ -50,24 +33,28 @@
 					</h2>
 				</caption>
 
-				<fieldset class="form-group" style="display:none">
-					<label>ID</label> <input type="text" 
+				<fieldset class="form-group" style="display: none">
+					<label>ID</label> <input type="text"
 						value="<c:out value='${votante.id}'/>" class="form-control"
 						name="id" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">
-					<label>Estamento</label> <select class="form-select" name="estamento">
-						<option selected value="${votante != null ? "" : 1}">Seleccione Una</option>
+					<label>Estamento</label> <select class="form-select"
+						name="estamento">
+						<option selected value="${votante != null ? "" : 1}">Seleccione
+							Una</option>
 						<c:forEach var="dd" items="${estamentos}">
 							<option value='${dd.id}'>"${dd.descripcion}"</option>
 						</c:forEach>
 					</select>
 				</fieldset>
-				
+
 				<fieldset class="form-group">
-					<label>Tipo Documento</label> <select class="form-select" name="tipo">
-						<option selected value="${votante != null ? votante.tipo_documento : ""}">${votante != null ? votante.tipo_documento : "Seleccione Una"}</option>
+					<label>Tipo Documento</label> <select class="form-select"
+						name="tipo">
+						<option selected
+							value="${votante != null ? votante.tipo_documento : ""}">${votante != null ? votante.tipo_documento : "Seleccione Una"}</option>
 						<c:forEach var="dd" items="${tipos}">
 							<option value='${dd.id}'>"${dd.descripcion}"</option>
 						</c:forEach>
@@ -82,8 +69,8 @@
 
 				<fieldset class="form-group">
 					<label>Nombre</label> <input type="text"
-						value="<c:out value='${votante.nombre}'/>"
-						class="form-control" name="nombre" required="required">
+						value="<c:out value='${votante.nombre}'/>" class="form-control"
+						name="nombre" required="required">
 				</fieldset>
 
 				<fieldset class="form-group">

@@ -6,31 +6,17 @@
 <head>
 <meta charset="ISO-8859-1">
 <!-- CSS only -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
+<link rel="stylesheet" href="resources/css/table.css">
 <title>Candidatos</title>
 </head>
 <body>
 
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark">
-			<div>
-				<a href="#" class="navbar-brand">Gestion de Candidatos</a>
-			</div>
-			<ul class="navbar-nav">
-				<li><a href="<%=request.getContextPath()%>/list"
-					class="nav-link">Usuarios </a></li>
-			</ul>
-		</nav>
-	</header>
 
 	<div class="row">
 		<div class="container">
-			<h3 class="text-center">Candidatos</h3>
-			<hr>
+			<div class="table-title">
+				<h3>Candidatos</h3>
+			</div>
 
 			<div class="container text-left">
 				<a href="<%=request.getContextPath()%>/newCandidato" class="btn btn-success">
@@ -39,36 +25,37 @@
 
 			<br>
 
-			<table class="table table-bordered">
+			<table class="table-fill">
 				<thead>
 					<tr>
-						<th>ID</th>
-						<th>Documento</th>
-						<th>Nombre</th>
-						<th>Apellido</th>
-						<th>Eleccion</th>
-						<th>Numero</th>
+						<th class="text-left">ID</th>
+						<th class="text-left">Documento</th>
+						<th class="text-left">Nombre</th>
+						<th class="text-left">Apellido</th>
+						<th class="text-left">Eleccion</th>
+						<th class="text-left">Numero</th>
+						<th class="text-left">Opciones</th>
 					</tr>
 				</thead>
 
-				<tbody>
+				<tbody class="table-hover">
 
 					<c:forEach var="usuario" items="${listCandidato}">
 						<tr>
 
-							<td><c:out value="${usuario.id}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.id}"></c:out></td>
 
-							<td><c:out value="${usuario.documento}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.documento}"></c:out></td>
 
-							<td><c:out value="${usuario.nombre}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.nombre}"></c:out></td>
 
-							<td><c:out value="${usuario.apellido}"></c:out></td>
-							<td><c:out value="${usuario.eleccion}"></c:out></td>
-							<td><c:out value="${usuario.numero}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.apellido}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.eleccion}"></c:out></td>
+							<td class="text-left"><c:out value="${usuario.numero}"></c:out></td>
 
-							<td><a href="editCandidato?id=<c:out value = '${usuario.id}' />">Editar
+							<td class="text-left"><a href="editCandidato?id=<c:out value = '${usuario.id}' />">Editar
 							</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="deleteCandidato?id=<c:out value='${usuario.id}' />">Delete</a></td>
+								href="deleteCandidato?id=<c:out value='${usuario.id}' />">Eliminar</a></td>
 					</c:forEach>
 
 				</tbody>
