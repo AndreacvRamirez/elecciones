@@ -53,9 +53,9 @@
 							<td class="text-left"><c:out value="${usuario.eleccion}"></c:out></td>
 							<td class="text-left"><c:out value="${usuario.numero}"></c:out></td>
 
-							<td class="text-left"><a href="candidato?accion=showEditCandiato&&candidato=<c:out value = '${usuario.id}' />">Editar
+							<td class="text-left"><a href="candidato?accion=showEditCandiato&&id=<c:out value = '${usuario.id}' />">Editar
 							</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="deleteCandidato?id=<c:out value='${usuario.id}' />">Eliminar</a></td>
+								href="candidato?accion=deleteCandiato&&id=<c:out value='${usuario.id}' />">Eliminar</a></td>
 					</c:forEach>
 
 				</tbody>

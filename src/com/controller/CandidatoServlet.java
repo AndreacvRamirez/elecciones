@@ -173,4 +173,5 @@ public class CandidatoServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("candidato.jsp");
 		dispatcher.forward(request, response);
 	}
+	
 }
